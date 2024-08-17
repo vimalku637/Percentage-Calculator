@@ -1,0 +1,84 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    namespace 'com.indevconsultancy.percentagecalculator'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.indevconsultancy.percentagecalculator"
+        minSdkVersion 26
+        targetSdk 34
+        versionCode 14
+        versionName "2.3"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    android {
+        lintOptions {
+            checkReleaseBuilds false
+            // Or, if you prefer, you can continue to check for errors in release builds,
+            // but continue the build even when errors are found:
+            abortOnError false
+        }
+    }
+
+    configurations.configureEach {
+        resolutionStrategy.force 'com.android.support:support-v4:28.0.0'
+    }
+
+    dataBinding {
+        enabled = true
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.core:core-ktx:1.13.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+    //dimens dependency
+    implementation 'com.intuit.sdp:sdp-android:1.1.0'
+    //text dimens dependency
+    implementation 'com.intuit.ssp:ssp-android:1.1.0'
+    //circular image-view
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    //zoom splash image
+    implementation 'com.github.florent37:viewanimator:1.1.0'
+    //update app notification
+    // This dependency is downloaded from the Google’s Maven repository.
+    // Make sure you also include that repository
+    implementation 'com.google.android.play:app-update:2.1.0'
+
+    // For Kotlin users, also add the Kotlin extensions library for Play In-App Update:
+    implementation 'com.google.android.play:app-update-ktx:2.1.0'
+    //AdMob dependencies
+    implementation 'com.google.android.gms:play-services-ads:22.1.0'
+    //sweet-alert
+    implementation 'com.github.f0ris.sweetalert:library:1.6.2'
+    //firebase messaging
+    implementation 'com.google.firebase:firebase-messaging:24.0.0'
+    implementation 'com.google.firebase:firebase-analytics:22.0.2'
+}

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "389679628487",
+    "project_id": "percentage-calculator-c9d26",
+    "storage_bucket": "percentage-calculator-c9d26.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389679628487:android:67d88e4c1c30eec63cfee2",
+        "android_client_info": {
+          "package_name": "com.indevconsultancy.percentagecalculator"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6evzm4ier21DrLLaHdqWFmxQ5jgOytrY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

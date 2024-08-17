@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mMainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".fragments.DiscountPercentage">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilInitialValue"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:errorEnabled="true"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tietInitialValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/rupee_ic"
+                    android:drawableTint="?android:attr/textColorPrimary"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:hint="@string/initial_value"
+                    android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilDiscountPercentage"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:errorEnabled="true"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilInitialValue"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tietDiscountPercentage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/percentage_ic"
+                    android:drawableTint="?android:attr/textColorPrimary"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:hint="@string/discount_percentage"
+                    android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDiscountValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/discount_value"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="?android:attr/textColorPrimary"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilDiscountPercentage"
+                />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mtvDiscountValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/_00_00"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="@dimen/_22ssp"
+                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDiscountValue"
+                android:background="@drawable/result_background"
+                android:paddingTop="@dimen/_35sdp"
+                android:paddingBottom="@dimen/_35sdp"
+                />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvValueAfterDiscount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/value_after_discount"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="?android:attr/textColorPrimary"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mtvDiscountValue"
+                />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mtvValueAfterDiscount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/_00_00_"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="@dimen/_22ssp"
+                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvValueAfterDiscount"
+                android:background="@drawable/result_background"
+                android:paddingTop="@dimen/_35sdp"
+                android:paddingBottom="@dimen/_35sdp"
+                />
+
+            <!--BANNER original adUnitId=>ca-app-pub-1719443042342371/9659771513-->
+            <!--BANNER test adUnitId=>ca-app-pub-3940256099942544/6300978111-->
+            <com.google.android.gms.ads.AdView
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                ads:adSize="BANNER"
+                ads:adUnitId="ca-app-pub-1719443042342371/9659771513"
+                ads:layout_constraintStart_toStartOf="parent"
+                ads:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mtvValueAfterDiscount"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                >
+            </com.google.android.gms.ads.AdView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
