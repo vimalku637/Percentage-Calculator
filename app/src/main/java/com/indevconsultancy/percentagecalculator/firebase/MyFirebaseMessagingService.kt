@@ -5,7 +5,6 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.core.app.NotificationCompat
@@ -69,7 +68,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         sendBroadcast(broadcastIntent)
     }
 
-    @SuppressLint("NotificationTrampoline")
+    @SuppressLint("NotificationTrampoline", "LaunchActivityFromNotification")
     private fun showNotification(title: String?, body: String?, extraData: String?) {
         val intent = Intent(this, NotificationReceiver::class.java)
         intent.putExtra("title", title)
@@ -88,14 +87,12 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             .setAutoCancel(true)
             .setContentIntent(pendingIntent)
         val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(
-                CHANNEL_ID,
-                "Channel human readable title",
-                NotificationManager.IMPORTANCE_DEFAULT
-            )
-            notificationManager.createNotificationChannel(channel)
-        }
+        val channel = NotificationChannel(
+            CHANNEL_ID,
+            "Channel human readable title",
+            NotificationManager.IMPORTANCE_DEFAULT
+        )
+        notificationManager.createNotificationChannel(channel)
         notificationManager.notify(0, notificationBuilder.build())
     }
 

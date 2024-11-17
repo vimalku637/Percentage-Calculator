@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mMainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.settings.SettingsFragment">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/llSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_8sdp"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <RelativeLayout
+                        android:id="@+id/rlDarkMode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp">
+
+                        <ImageView
+                            android:id="@+id/ivDarkMode"
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:background="@drawable/bg_for_icons"
+                            android:padding="@dimen/_10sdp"
+                            android:src="@drawable/ic_baseline_brightness_3_24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:layout_toEndOf="@+id/ivDarkMode"
+                            android:text="@string/enable_dark_mode"
+                            android:textColor="?android:attr/textColorPrimary"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="normal" />
+
+<!--                        <com.google.android.material.switchmaterial.SwitchMaterial-->
+<!--                            android:id="@+id/darkModeSwitch"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text=""-->
+<!--                            android:layout_centerVertical="true"-->
+<!--                            android:layout_alignParentEnd="true"-->
+<!--                            />-->
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/rlChangeLanguage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp">
+
+                        <ImageView
+                            android:id="@+id/ivChangeLanguage"
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:background="@drawable/bg_for_icons"
+                            android:padding="@dimen/_10sdp"
+                            android:src="@drawable/ic_baseline_language_24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:layout_toEndOf="@+id/ivChangeLanguage"
+                            android:text="@string/change_language"
+                            android:textColor="?android:attr/textColorPrimary"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="normal" />
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/rlChangeFont"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp">
+
+                        <ImageView
+                            android:id="@+id/ivChangeFont"
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:background="@drawable/bg_for_icons"
+                            android:padding="@dimen/_10sdp"
+                            android:src="@drawable/baseline_font_download_24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:layout_toEndOf="@+id/ivChangeFont"
+                            android:text="@string/change_app_font"
+                            android:textColor="?android:attr/textColorPrimary"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="normal" />
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/rlChangeTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp">
+
+                        <ImageView
+                            android:id="@+id/ivChangeTheme"
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:background="@drawable/bg_for_icons"
+                            android:padding="@dimen/_10sdp"
+                            android:src="@drawable/baseline_color_lens_24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:layout_toEndOf="@+id/ivChangeTheme"
+                            android:text="@string/change_theme"
+                            android:textColor="?android:attr/textColorPrimary"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="normal" />
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/rlShareApp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp">
+
+                        <ImageView
+                            android:id="@+id/ivShareApp"
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:background="@drawable/bg_for_icons"
+                            android:padding="@dimen/_10sdp"
+                            android:src="@drawable/ic_baseline_share_24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:layout_toEndOf="@+id/ivShareApp"
+                            android:text="@string/share_app"
+                            android:textColor="?android:attr/textColorPrimary"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="normal" />
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/rlRateApp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp">
+
+                        <ImageView
+                            android:id="@+id/ivRateApp"
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:background="@drawable/bg_for_icons"
+                            android:padding="@dimen/_10sdp"
+                            android:src="@drawable/ic_baseline_star_rate_24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:layout_toEndOf="@+id/ivRateApp"
+                            android:text="@string/rate_app"
+                            android:textColor="?android:attr/textColorPrimary"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="normal" />
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/rlContactUs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp">
+
+                        <ImageView
+                            android:id="@+id/ivContactUs"
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:background="@drawable/bg_for_icons"
+                            android:padding="@dimen/_10sdp"
+                            android:src="@drawable/ic_baseline_contact_mail_24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:layout_toEndOf="@+id/ivContactUs"
+                            android:text="@string/contact_us"
+                            android:textColor="?android:attr/textColorPrimary"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="normal" />
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/rlAboutMe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp">
+
+                        <ImageView
+                            android:id="@+id/ivAboutMe"
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:background="@drawable/bg_for_icons"
+                            android:padding="@dimen/_10sdp"
+                            android:src="@drawable/baseline_account_box_24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:layout_toEndOf="@+id/ivAboutMe"
+                            android:text="@string/about_me"
+                            android:textColor="?android:attr/textColorPrimary"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="normal" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvAppVersion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_80sdp"
+                    android:layout_marginTop="@dimen/_5ssp"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    android:paddingVertical="@dimen/_4sdp"
+                    android:text="v2.4"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:gravity="center"
+                    android:textAllCaps="false"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/llSettings" />
+
+                <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/adView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    ads:adSize="BANNER"
+                    ads:adUnitId="@string/BANNER_AD_UNIT_ID"
+                    ads:layout_constraintEnd_toEndOf="parent"
+                    ads:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAppVersion"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

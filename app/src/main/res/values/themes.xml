@@ -17,7 +17,7 @@
         <!--<item name="android:typeface">monospace</item>-->
     </style>
     <!--customize splash screen-->
-    <style name="AppTheme.SplashScreen" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">प्रतिशत कैलकुलेटर</string>
-    <string name="percentage_calculator">प्रतिशत कैलकुलेटर</string>
+    <string name="app_name">% कैलकुलेटर</string>
+    <string name="percentage_calculator">% कैलकुलेटर</string>
+    <string name="BANNER_AD_UNIT_ID">ca-app-pub-1719443042342371/9659771513</string>
+    <string name="REWARDED_AD_UNIT_ID">ca-app-pub-1719443042342371/5835435201</string>
     <string name="student_percentage">छात्र\nप्रतिशत</string>
     <string name="discount_percentage">छूट\nप्रतिशत</string>
     <string name="initial_value">प्रारंभिक मूल्य</string>
@@ -27,7 +29,7 @@
         <item>ईमेल: vimalku637@gmail.com</item>
     </string-array>
     <string name="choose_your_preferred_language">अपनी पसंदीदा भाषा चुनें</string>
-    <string name="english">English [en]</string>
+    <string name="english">अंग्रेज़ी [en]</string>
     <string name="hindi">हिंदी [hi]</string>
     <string name="get_in_touch">संपर्क में रहो</string>
     <string name="_ok">ठीक है</string>
@@ -36,7 +38,7 @@
     <string name="about_me">मेरे बारे मेँ</string>
     <string name="p_r_o_f_i_l_e">प्रोफ़ाइल</string>
     <string name="vimal_kumar"><b>विमल कुमार</b> \nएंड्रॉयड डेवलपर</string>
-    <string name="about_me_description">मैं विमल कुमार हूँ। मैं एंड्रॉइड डेवलपर हूं। मैं जावा और कोटलिन का उपयोग करके एंड्रॉइड एप्लिकेशन विकसित कर रहा हूं। मुझे कोडिंग पसंद है और साथ ही मैं हमेशा नई तकनीक को जल्द से जल्द अपनाने की कोशिश करता हूं।</string>
+    <string name="about_me_description">नमस्ते, मैं जावा और कोटलिन का उपयोग करके एंड्रॉइड एप्लिकेशन विकसित कर रहा हूं। मुझे कोडिंग पसंद है और साथ ही मैं हमेशा नई तकनीक को जल्द से जल्द अपनाने की कोशिश करता हूं।</string>
     <string name="contact_me">मुझसे संपर्क करें</string>
     <string name="email">vimalku637@gmail.com</string>
     <string name="age_calculator">आयु\nकैलकुलेटर</string>
@@ -70,4 +72,6 @@
     <string name="install_now">अब स्थापित करें</string>
     <string name="later">बाद में</string>
     <string name="change_app_font">ऐप फ़ॉन्ट बदलें</string>
+    <string name="settings">सेटिंग्स</string>
+    <string name="change_theme">थीम बदलें</string>
 </resources>

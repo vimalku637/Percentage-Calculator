@@ -1,4 +1,4 @@
-package com.indevconsultancy.percentagecalculator.fragments
+package com.indevconsultancy.percentagecalculator.ui.age_calculator
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
@@ -74,13 +74,8 @@ class AgeCalculator : Fragment() {
         MobileAds.initialize(
             requireActivity()
         )
-        /**
-         * Toast.makeText(MainActivity.this, ""+initializationStatus, Toast.LENGTH_SHORT).show();
-         */
         {
-            /**
-             * Toast.makeText(MainActivity.this, ""+initializationStatus, Toast.LENGTH_SHORT).show();
-             */
+
         }
         mAdView = view.findViewById(R.id.adView)
         adRequest = AdRequest.Builder().build()
@@ -233,10 +228,10 @@ class AgeCalculator : Fragment() {
         val theme = ThemeHelper(requireActivity())
         if (theme.loadNightMode()) {
             //set night mode colors
-            mMainLayout!!.setBackgroundColor(ContextCompat.getColor(requireActivity(), R.color.black))
+            mMainLayout!!.setBackgroundColor(ContextCompat.getColor(requireActivity(), R.color.black_dark_mod))
         } else {
             //set day mode colors
-            mMainLayout!!.setBackgroundColor(ContextCompat.getColor(requireActivity(), R.color.white))
+            mMainLayout!!.setBackgroundColor(ContextCompat.getColor(requireActivity(), R.color.white_dark_mod))
         }
     }
 

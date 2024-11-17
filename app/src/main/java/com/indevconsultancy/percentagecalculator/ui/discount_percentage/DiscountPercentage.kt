@@ -1,4 +1,4 @@
-package com.indevconsultancy.percentagecalculator.fragments
+package com.indevconsultancy.percentagecalculator.ui.discount_percentage
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -57,18 +57,11 @@ class DiscountPercentage : Fragment() {
 
     @SuppressLint("MissingPermission")
     private fun adsInitialization(view: View) {
-        MobileAds.initialize((activity)!!
+        MobileAds.initialize((requireActivity())
         )
-        /**
-         * Toast.makeText(MainActivity.this, ""+initializationStatus, Toast.LENGTH_SHORT).show();
-         */
-        /**
-         * Toast.makeText(MainActivity.this, ""+initializationStatus, Toast.LENGTH_SHORT).show();
-         */
+
         {
-            /**
-             * Toast.makeText(MainActivity.this, ""+initializationStatus, Toast.LENGTH_SHORT).show();
-             */
+
         }
         mAdView = view.findViewById(R.id.adView)
         adRequest = AdRequest.Builder().build()
@@ -193,13 +186,13 @@ class DiscountPercentage : Fragment() {
      * Set color depending on app theme.
      */
     private fun initTheme() {
-        val theme = ThemeHelper((activity)!!)
+        val theme = ThemeHelper((requireActivity()))
         if (theme.loadNightMode()) {
             //set night mode colors
-            mMainLayout!!.setBackgroundColor(ContextCompat.getColor((activity)!!, R.color.black))
+            mMainLayout!!.setBackgroundColor(ContextCompat.getColor((requireActivity()), R.color.black_dark_mod))
         } else {
             //set day mode colors
-            mMainLayout!!.setBackgroundColor(ContextCompat.getColor((activity)!!, R.color.white))
+            mMainLayout!!.setBackgroundColor(ContextCompat.getColor((requireActivity()), R.color.white_dark_mod))
         }
     }
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
+    <color name="purple_200">#FF5722</color>//dark-mod button color
+    <color name="purple_500">#FF5722</color>//toolbar color
+    <color name="purple_700">#FF5722</color>//status bar color
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
@@ -14,5 +14,7 @@
     <color name="color_green_google">#0F9D58</color>
     <color name="color_gray">#D6CDCD</color>
     <color name="grey_light">#E9EAEE</color>
+    <color name="black_dark_mod">#000000</color>
+    <color name="white_dark_mod">#FFFFFFFF</color>
 
 </resources>

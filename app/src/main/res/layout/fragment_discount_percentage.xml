@@ -8,7 +8,7 @@
     android:background="@color/white"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".fragments.DiscountPercentage">
+    tools:context=".ui.discount_percentage.DiscountPercentage">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -128,8 +128,6 @@
                 android:paddingBottom="@dimen/_35sdp"
                 />
 
-            <!--BANNER original adUnitId=>ca-app-pub-1719443042342371/9659771513-->
-            <!--BANNER test adUnitId=>ca-app-pub-3940256099942544/6300978111-->
             <com.google.android.gms.ads.AdView
                 xmlns:ads="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/adView"
@@ -138,7 +136,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
                 ads:adSize="BANNER"
-                ads:adUnitId="ca-app-pub-1719443042342371/9659771513"
+                ads:adUnitId="@string/BANNER_AD_UNIT_ID"
                 ads:layout_constraintStart_toStartOf="parent"
                 ads:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/mtvValueAfterDiscount"

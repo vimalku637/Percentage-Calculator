@@ -7,6 +7,7 @@ import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
 import android.os.Environment
+import com.google.firebase.FirebaseApp
 import java.io.File
 
 class AppController : Application() {
@@ -14,6 +15,8 @@ class AppController : Application() {
         super.onCreate()
         mInstance = this
         mContext = applicationContext
+        FirebaseApp.initializeApp(this)
+
         createNotificationChannel()
         val directory: File? = if (Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED) {
                 File(
