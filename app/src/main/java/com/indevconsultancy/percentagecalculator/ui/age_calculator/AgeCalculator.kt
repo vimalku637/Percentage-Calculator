@@ -313,7 +313,8 @@ class AgeCalculator : Fragment() {
     override fun onOptionsItemSelected(menuItem: MenuItem): Boolean {
         when (menuItem.itemId) {
             android.R.id.home -> {
-                super.requireActivity().onBackPressed()
+//                super.requireActivity().onBackPressed()
+                requireActivity().onBackPressedDispatcher.onBackPressed()
                 return true
             }
         }

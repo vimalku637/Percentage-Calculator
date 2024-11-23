@@ -136,22 +136,26 @@ class StudentPercentage : Fragment() {
                         etOutOfMarks!!.text.toString().trim { it <= ' ' }.toInt()
                     result = java.lang.Double.valueOf(((scoredMarks * 100) / outOfMarks).toDouble())
                     if (result > 0.0 && result <= 39.0) {
-                        mtvTotalPercentageScored!!.setTextColor(resources.getColor(R.color.color_red_google))
+//                        mtvTotalPercentageScored!!.setTextColor(resources.getColor(R.color.color_red_google))
+                        mtvTotalPercentageScored!!.setTextColor(ContextCompat.getColor(requireActivity(), R.color.color_red_google))
                         mtvTotalPercentageScored!!.text =
                             result.toString() + " " + getString(R.string.percent_symbol)
                         mbShare!!.isEnabled = true
                     } else if (result in 39.0..59.0) {
-                        mtvTotalPercentageScored!!.setTextColor(resources.getColor(R.color.color_yellow_google))
+//                        mtvTotalPercentageScored!!.setTextColor(resources.getColor(R.color.color_yellow_google))
+                        mtvTotalPercentageScored!!.setTextColor(ContextCompat.getColor(requireActivity(), R.color.color_yellow_google))
                         mtvTotalPercentageScored!!.text =
                             result.toString() + " " + getString(R.string.percent_symbol)
                         mbShare!!.isEnabled = true
                     } else if (result in 59.0..74.0) {
-                        mtvTotalPercentageScored!!.setTextColor(resources.getColor(R.color.color_blue_google))
+//                        mtvTotalPercentageScored!!.setTextColor(resources.getColor(R.color.color_blue_google))
+                        mtvTotalPercentageScored!!.setTextColor(ContextCompat.getColor(requireActivity(), R.color.color_blue_google))
                         mtvTotalPercentageScored!!.text =
                             result.toString() + " " + getString(R.string.percent_symbol)
                         mbShare!!.isEnabled = true
                     } else if (result in 74.0..100.0) {
-                        mtvTotalPercentageScored!!.setTextColor(resources.getColor(R.color.color_green_google))
+//                        mtvTotalPercentageScored!!.setTextColor(resources.getColor(R.color.color_green_google))
+                        mtvTotalPercentageScored!!.setTextColor(ContextCompat.getColor(requireActivity(), R.color.color_green_google))
                         mtvTotalPercentageScored!!.text =
                             result.toString() + " " + getString(R.string.percent_symbol)
                         mbShare!!.isEnabled = true
@@ -172,7 +176,8 @@ class StudentPercentage : Fragment() {
         mbClear!!.setOnClickListener {
             etScoredMarks!!.text = null
             etOutOfMarks!!.text = null
-            mtvTotalPercentageScored!!.setTextColor(resources.getColor(R.color.black))
+//            mtvTotalPercentageScored!!.setTextColor(resources.getColor(R.color.black))
+            mtvTotalPercentageScored!!.setTextColor(ContextCompat.getColor(requireActivity(), R.color.black))
             mtvTotalPercentageScored!!.text = getString(R.string._00_00)
             setEnableDisable()
         }
@@ -242,7 +247,8 @@ class StudentPercentage : Fragment() {
     override fun onOptionsItemSelected(menuItem: MenuItem): Boolean {
         when (menuItem.itemId) {
             android.R.id.home -> {
-                super.requireActivity().onBackPressed()
+//                super.requireActivity().onBackPressed()
+                requireActivity().onBackPressedDispatcher.onBackPressed()
                 return true
             }
         }

@@ -147,19 +147,22 @@ class BmiCalculator : Fragment() {
                     df.roundingMode = RoundingMode.DOWN
                     result = java.lang.Double.valueOf(df.format(resultBMI))
                     if (result > 0.0 && result <= 18.5) {
-                        mtvBMICalculation!!.setTextColor(resources.getColor(R.color.color_blue_google))
+//                        mtvBMICalculation!!.setTextColor(resources.getColor(R.color.color_blue_google))
+                        mtvBMICalculation!!.setTextColor(ContextCompat.getColor(requireActivity(), R.color.color_blue_google))
                         mtvBMICalculation!!.text =
                             result.toString() + "" + "\n" + getString(R.string.underweight)
                         mbShare!!.isEnabled = true
                         mbClear!!.isEnabled = true
                     } else if (result in 18.5..25.0) {
-                        mtvBMICalculation!!.setTextColor(resources.getColor(R.color.color_green_google))
+//                        mtvBMICalculation!!.setTextColor(resources.getColor(R.color.color_green_google))
+                        mtvBMICalculation!!.setTextColor(ContextCompat.getColor(requireActivity(), R.color.color_green_google))
                         mtvBMICalculation!!.text =
                             result.toString() + "" + "\n" + getString(R.string.normal)
                         mbShare!!.isEnabled = true
                         mbClear!!.isEnabled = true
                     } else if (result > 25.0) {
-                        mtvBMICalculation!!.setTextColor(resources.getColor(R.color.color_red_google))
+//                        mtvBMICalculation!!.setTextColor(resources.getColor(R.color.color_red_google))
+                        mtvBMICalculation!!.setTextColor(ContextCompat.getColor(requireActivity(), R.color.color_red_google))
                         mtvBMICalculation!!.text =
                             result.toString() + "" + "\n" + getString(R.string.overweight)
                         mbShare!!.isEnabled = true
@@ -198,21 +201,24 @@ class BmiCalculator : Fragment() {
                     df.roundingMode = RoundingMode.DOWN
                     result = java.lang.Double.valueOf(df.format(resultBMI))
                     if (result > 0.0 && result <= 18.5) {
-                        mtvBMICalculation!!.setTextColor(resources.getColor(R.color.color_blue_google))
+//                        mtvBMICalculation!!.setTextColor(resources.getColor(R.color.color_blue_google))
+                        mtvBMICalculation!!.setTextColor(ContextCompat.getColor(requireActivity(), R.color.color_blue_google))
                         mtvBMICalculation!!.text =
                             result.toString() + "" + "\n" + getString(R.string.underweight)
                         shareBMI = result.toString() + "" + "\n" + getString(R.string.underweight)
                         mbShare!!.isEnabled = true
                         mbClear!!.isEnabled = true
                     } else if (result in 18.5..25.0) {
-                        mtvBMICalculation!!.setTextColor(resources.getColor(R.color.color_green_google))
+//                        mtvBMICalculation!!.setTextColor(resources.getColor(R.color.color_green_google))
+                        mtvBMICalculation!!.setTextColor(ContextCompat.getColor(requireActivity(), R.color.color_green_google))
                         mtvBMICalculation!!.text =
                             result.toString() + "" + "\n" + getString(R.string.normal)
                         shareBMI = result.toString() + "" + "\n" + getString(R.string.normal)
                         mbShare!!.isEnabled = true
                         mbClear!!.isEnabled = true
                     } else if (result > 25.0) {
-                        mtvBMICalculation!!.setTextColor(resources.getColor(R.color.color_red_google))
+//                        mtvBMICalculation!!.setTextColor(resources.getColor(R.color.color_red_google))
+                        mtvBMICalculation!!.setTextColor(ContextCompat.getColor(requireActivity(), R.color.color_red_google))
                         mtvBMICalculation!!.text =
                             result.toString() + "" + "\n" + getString(R.string.overweight)
                         shareBMI = result.toString() + "" + "\n" + getString(R.string.overweight)
@@ -250,7 +256,8 @@ class BmiCalculator : Fragment() {
         mbClear!!.setOnClickListener {
             etWeight!!.text = null
             etHeight!!.text = null
-            mtvBMICalculation!!.setTextColor(resources.getColor(R.color.black))
+//            mtvBMICalculation!!.setTextColor(resources.getColor(R.color.black))
+            mtvBMICalculation!!.setTextColor(ContextCompat.getColor(requireActivity(), R.color.black))
             mtvBMICalculation!!.text = getString(R.string._00_00__)
             setEnableDisable()
         }
@@ -279,7 +286,8 @@ class BmiCalculator : Fragment() {
     override fun onOptionsItemSelected(menuItem: MenuItem): Boolean {
         when (menuItem.itemId) {
             android.R.id.home -> {
-                super.requireActivity().onBackPressed()
+//                super.requireActivity().onBackPressed()
+                requireActivity().onBackPressedDispatcher.onBackPressed()
                 return true
             }
         }

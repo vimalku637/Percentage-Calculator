@@ -21,19 +21,20 @@ import android.view.MenuItem
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
-import androidx.annotation.NonNull
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
-import com.google.android.gms.ads.rewarded.RewardItem
-import com.google.android.gms.ads.rewarded.RewardedAd
-import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
+import com.google.android.gms.ads.RequestConfiguration
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.indevconsultancy.percentagecalculator.MainActivity
 import com.indevconsultancy.percentagecalculator.R
 import com.indevconsultancy.percentagecalculator.databinding.DialogChangeLanguageBinding
@@ -54,11 +55,12 @@ class SettingsFragment : Fragment(), OnClickListener {
     private var prefs: SharedPreferences? = null
     private var alertDialog: AlertDialog? = null
 
-    private var rewardedAd: RewardedAd? = null
+//    private var rewardedAd: RewardedAd? = null
     /**
      * ads initialization
      */
     private var adRequest: AdRequest? = null
+    private var interstitialAd: InterstitialAd?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -93,11 +95,11 @@ class SettingsFragment : Fragment(), OnClickListener {
             (activity as MainActivity?)!!.setActionBarTitle(getString(R.string.settings))
         }
         // Configure AdMob to show test ads on this device
-//        MobileAds.initialize(requireActivity()) { }
-//        val configuration = RequestConfiguration.Builder()
-//            .setTestDeviceIds(mutableListOf("5F113D5FD7F39144F9B6C130A19CFA3E")) // Replace with your actual test device ID
-//            .build()
-//        MobileAds.setRequestConfiguration(configuration)
+        MobileAds.initialize(requireActivity()) { }
+        val configuration = RequestConfiguration.Builder()
+            .setTestDeviceIds(mutableListOf("5F113D5FD7F39144F9B6C130A19CFA3E")) // Replace with your actual test device ID
+            .build()
+        MobileAds.setRequestConfiguration(configuration)
 
         binding.rlDarkMode.setOnClickListener(this)
         binding.rlChangeLanguage.setOnClickListener(this)
@@ -114,7 +116,10 @@ class SettingsFragment : Fragment(), OnClickListener {
         initViews()
 
         // Load the rewarded ad
-        loadRewardedAd()
+//        loadRewardedAd()
+
+        // Load the Interstitial Ad
+        loadInterstitialAd()
 
         /**
          * Ad-Mob for show ads in app
@@ -126,7 +131,6 @@ class SettingsFragment : Fragment(), OnClickListener {
 
     @SuppressLint("MissingPermission")
     private fun adsInitialization() {
-        MobileAds.initialize(requireActivity()){}
         adRequest = AdRequest.Builder().build()
         binding.adView.loadAd(adRequest!!)
         binding.adView.adListener = object : AdListener() {
@@ -165,37 +169,86 @@ class SettingsFragment : Fragment(), OnClickListener {
         }
     }
 
-    private fun loadRewardedAd() {
-        val adRequest: AdRequest = AdRequest.Builder().build()
-        RewardedAd.load(requireActivity(), getString(R.string.REWARDED_AD_UNIT_ID), adRequest,
-            object : RewardedAdLoadCallback() {
-                override fun onAdLoaded(@NonNull ad: RewardedAd) {
-                    rewardedAd = ad
-                    Log.d("RewardActivity", "Rewarded ad loaded")
+//    private fun loadRewardedAd() {
+//        val adRequest: AdRequest = AdRequest.Builder().build()
+//        RewardedAd.load(requireActivity(), getString(R.string.REWARDED_AD_UNIT_ID), adRequest,
+//            object : RewardedAdLoadCallback() {
+//                override fun onAdLoaded(@NonNull ad: RewardedAd) {
+//                    rewardedAd = ad
+//                    Log.d("RewardActivity", "Rewarded ad loaded")
+//
+//                    if (rewardedAd != null) {
+//                        showRewardedAd();
+//                    } else {
+//                        Log.d(TAG, "Ad is not ready yet.")
+//                    }
+//                }
+//
+//                override fun onAdFailedToLoad(@NonNull adError: LoadAdError) {
+//                    rewardedAd = null
+//                    Log.e(TAG, "Failed to load rewarded ad: " + adError.message)
+//                }
+//            })
+//    }
+//    private fun showRewardedAd() {
+//        if (rewardedAd != null) {
+//            rewardedAd!!.show(requireActivity()) { rewardItem: RewardItem ->
+//                // Handle the reward
+//                val rewardAmount = rewardItem.amount
+//                val rewardType = rewardItem.type
+//                Log.d(TAG, "User earned the reward: $rewardAmount $rewardType")
+//            }
+//        } else {
+//            Log.d(TAG, "The rewarded ad wasn't ready yet.")
+//        }
+//    }
 
-                    if (rewardedAd != null) {
-                        showRewardedAd();
-                    } else {
-                        Log.d(TAG, "Ad is not ready yet.")
-                    }
+    private fun loadInterstitialAd() {
+        val adRequest = AdRequest.Builder().build()
+
+        InterstitialAd.load(
+            requireActivity(),
+            getString(R.string.INTERSTITIAL_AD_UNIT_ID), // Use test Ad Unit ID for testing
+            adRequest,
+            object : InterstitialAdLoadCallback() {
+                override fun onAdLoaded(ad: InterstitialAd) {
+                    interstitialAd = ad
+
+                    showInterstitialAd()
+//                    setupAdCallbacks()
                 }
 
-                override fun onAdFailedToLoad(@NonNull adError: LoadAdError) {
-                    rewardedAd = null
-                    Log.e(TAG, "Failed to load rewarded ad: " + adError.message)
+                override fun onAdFailedToLoad(adError: LoadAdError) {
+                    interstitialAd = null
+                    Log.d(TAG, "onAdFailedToLoad: "+"Ad failed to load")
                 }
-            })
-    }
-    private fun showRewardedAd() {
-        if (rewardedAd != null) {
-            rewardedAd!!.show(requireActivity()) { rewardItem: RewardItem ->
-                // Handle the reward
-                val rewardAmount = rewardItem.amount
-                val rewardType = rewardItem.type
-                Log.d(TAG, "User earned the reward: $rewardAmount $rewardType")
             }
+        )
+    }
+
+    private fun setupAdCallbacks() {
+        interstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
+            override fun onAdDismissedFullScreenContent() {
+                Log.d(TAG, "onAdDismissedFullScreenContent: "+"Ad dismissed")
+                // Reload the ad after it's closed
+                loadInterstitialAd()
+            }
+
+            override fun onAdFailedToShowFullScreenContent(adError: AdError) {
+                Log.d(TAG, "onAdFailedToShowFullScreenContent: "+"Ad failed to show")
+            }
+
+            override fun onAdShowedFullScreenContent() {
+                interstitialAd = null // Ad is shown, so clear the reference
+            }
+        }
+    }
+
+    private fun showInterstitialAd() {
+        if (interstitialAd != null) {
+            interstitialAd?.show(requireActivity())
         } else {
-            Log.d(TAG, "The rewarded ad wasn't ready yet.")
+            Log.d(TAG, "showInterstitialAd: "+"Ad not ready yet, proceeding without ad")
         }
     }
 
@@ -213,7 +266,7 @@ class SettingsFragment : Fragment(), OnClickListener {
             binding.rlAboutMe.visibility=View.VISIBLE
 
         val versionName = getAppVersionName()
-        binding.tvAppVersion.text = ""+versionName
+        binding.tvAppVersion.text = "v$versionName"
     }
 
     private fun getAppVersionName(): String {
@@ -440,7 +493,8 @@ class SettingsFragment : Fragment(), OnClickListener {
     override fun onOptionsItemSelected(menuItem: MenuItem): Boolean {
         when (menuItem.itemId) {
             android.R.id.home -> {
-                super.requireActivity().onBackPressed()
+//                super.requireActivity().onBackPressed()
+                requireActivity().onBackPressedDispatcher.onBackPressed()
                 return true
             }
         }

@@ -2,8 +2,10 @@
 <resources>
     <string name="app_name">% कैलकुलेटर</string>
     <string name="percentage_calculator">% कैलकुलेटर</string>
+    <string name="BANNER_TEST_AD_UNIT_ID">ca-app-pub-3940256099942544/6300978111</string>
     <string name="BANNER_AD_UNIT_ID">ca-app-pub-1719443042342371/9659771513</string>
     <string name="REWARDED_AD_UNIT_ID">ca-app-pub-1719443042342371/5835435201</string>
+    <string name="INTERSTITIAL_AD_UNIT_ID">ca-app-pub-1719443042342371/7695299442</string>
     <string name="student_percentage">छात्र\nप्रतिशत</string>
     <string name="discount_percentage">छूट\nप्रतिशत</string>
     <string name="initial_value">प्रारंभिक मूल्य</string>

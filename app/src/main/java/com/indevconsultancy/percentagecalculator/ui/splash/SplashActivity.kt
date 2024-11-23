@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -25,6 +26,16 @@ class SplashActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
+        // For API level 30+ (Android 11 and above)
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+//            val insetsController = window.insetsController
+//            insetsController?.hide(WindowInsets.Type.statusBars()) // Hide the status bar
+//            insetsController?.hide(WindowInsets.Type.navigationBars()) // Hide the navigation bar (if needed)
+//        } else {
+//            // For lower API levels (pre-Android 11)
+//            window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+//        }
+
 
         binding=DataBindingUtil.setContentView(this,R.layout.activity_splash_activitity)
 //        val preferences = getSharedPreferences("PercentageCalculator", MODE_PRIVATE)
@@ -47,11 +58,18 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun callNextActivity() {
-        Handler().postDelayed({
+//        Handler().postDelayed({
+//            val intent = Intent(context, MainActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }, SPLASH_DISPLAY_LENGTH.toLong())
+        val handler = Handler(Looper.getMainLooper())
+        handler.postDelayed({
             val intent = Intent(context, MainActivity::class.java)
             startActivity(intent)
             finish()
         }, SPLASH_DISPLAY_LENGTH.toLong())
+
     }
 
     override fun onResume() {
